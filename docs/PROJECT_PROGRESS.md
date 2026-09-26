@@ -53,9 +53,9 @@ be development-only comparisons, with their own licences retained.
 | --- | --- | --- |
 | Recover original roadmap and inspect Projects 1–4 | VERIFIED | Saved plan read; published repository documentation inspected. |
 | Create repository and freeze scope | VERIFIED | Repository created under Atabrahim; initial README commit 1a273834fedb8c7afee0e2a215b99bd72211e30f. |
-| Publish scaffold and progress record | IN PROGRESS | Browser publication authorized on 26 September 2026 after the connector returned 403. |
+| Publish scaffold and progress record | VERIFIED, PUBLISHED | Remote scaffold files match local files at 9a2d97a; package import, sdist/wheel build and Ruff pass. |
 | Verify experimental data and reference inputs | IN PROGRESS | Original pyElli candidate located; raw format inspected; complete provenance/licence audit pending. |
-| Optical core and independent validation | NOT STARTED | No numerical implementation claimed. |
+| Optical core and independent validation | VERIFIED | 15 tests pass, including 30 randomized stack comparisons with independent tmm 0.2.0. Publication in progress. |
 | Thickness inference and uncertainty | NOT STARTED | |
 | Measured case, synthetic ambiguity and tolerance study | NOT STARTED | |
 | CLI, figures, interactive demo and documentation | NOT STARTED | |
@@ -74,7 +74,11 @@ Analytical, numerical, synthetic, measured and reference-property results remain
 
 ## Test status
 
-No Project 5 tests executed yet. No scientific results or release claims.
+15 passed, 0 failed, 0 skipped. Ruff lint and formatting pass. Optical checks cover
+Fresnel/zero-thickness/quarter-wave limits, energy balance, passive absorption,
+total internal reflection, Brewster incidence, opaque films and invalid inputs.
+Thirty random stacks agree with tmm 0.2.0 for complex r/t and power R/T at
+2e-12 absolute/relative tolerances. These verify calculations, not measured accuracy.
 
 ## Known limitations / open checks
 
@@ -88,11 +92,11 @@ No Project 5 tests executed yet. No scientific results or release claims.
 ## Remaining work / next action
 
 Browser publication is explicitly authorized. Do not retry the connector write route, which
-returned HTTP 403 Resource not accessible by integration. Publish this record and the minimal
-Python scaffold, complete dataset provenance, then implement
-and independently verify the optical forward model. Do not change Projects 1–4.
+returned HTTP 403 Resource not accessible by integration. Finish publishing the verified
+optical core/tests/model documentation, then complete dataset provenance and thickness
+inference. Do not change Projects 1–4.
 
 ## Latest verified GitHub checkpoint
 
-`1a273834fedb8c7afee0e2a215b99bd72211e30f` — initial README, verified on GitHub.
-At preparation, the scaffold is local only. Verify the browser-created commit before advancing.
+`9a2d97a` — complete initial scaffold, verified by fetching and comparing staged files
+against origin/main. The optical milestone supersedes it once publication is verified.

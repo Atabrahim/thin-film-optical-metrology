@@ -12,6 +12,12 @@ Sentech ellipsometer. Columns are wavelength (nm), Psi (degrees), Delta (degrees
 The file contains 1,227 measurements. Its header specifies 70.06° incidence; the
 example's calculation uses 70°. This project uses the file's 70.06° value.
 
+**Phase convention:** [pyElli's result definition](https://pyelli.readthedocs.io/en/latest/_modules/elli/result.html)
+is `rho = tan(Psi) exp(-i Delta)`. Our API defines Delta as `+arg(rho)`.
+The workflow explicitly converts `delta_api_deg = -delta_raw_deg` before fitting;
+plots convert predictions back to the source convention. Raw and converted columns
+are retained. This is a documented convention transformation, not a data correction.
+
 - [Pinned original file](https://github.com/PyEllips/pyElli/blob/11dc002989fe718e8abc2d0050350c34fa0f41d9/examples/TiO2%20Fit/TiO2_400cycles.txt)
 - Source revision: `11dc002989fe718e8abc2d0050350c34fa0f41d9`.
 - SHA256: `fd0ef2b7ad72c77a5ad87ead9e697897f54b3d3a1154b0b12e0de21e668ce702`.

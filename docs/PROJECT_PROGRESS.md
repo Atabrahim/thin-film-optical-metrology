@@ -54,9 +54,9 @@ be development-only comparisons, with their own licences retained.
 | Recover original roadmap and inspect Projects 1–4 | VERIFIED | Saved plan read; published repository documentation inspected. |
 | Create repository and freeze scope | VERIFIED | Repository created under Atabrahim; initial README commit 1a273834fedb8c7afee0e2a215b99bd72211e30f. |
 | Publish scaffold and progress record | VERIFIED, PUBLISHED | Remote scaffold files match local files at 9a2d97a; package import, sdist/wheel build and Ruff pass. |
-| Verify experimental data and reference inputs | IN PROGRESS | Original pyElli candidate located; raw format inspected; complete provenance/licence audit pending. |
-| Optical core and independent validation | VERIFIED | 15 tests pass, including 30 randomized stack comparisons with independent tmm 0.2.0. Publication in progress. |
-| Thickness inference and uncertainty | NOT STARTED | |
+| Verify experimental data and reference inputs | VERIFIED | Pinned source files, licence, hashes and conditions in data/PROVENANCE.md; strict import and bounded interpolation tested. Publication in progress. |
+| Optical core and independent validation | VERIFIED, PUBLISHED | 15 tests pass, including 30 randomized stack comparisons with independent tmm 0.2.0; remote f8f0e75 verified. |
+| Thickness inference and uncertainty | VERIFIED | Analytical Airy and independent tmm recovery, Fisher covariance, ambiguity and rank/bound checks pass. Publication in progress. |
 | Measured case, synthetic ambiguity and tolerance study | NOT STARTED | |
 | CLI, figures, interactive demo and documentation | NOT STARTED | |
 | Full QA, clean wheel installation and CI | NOT STARTED | |
@@ -74,7 +74,9 @@ Analytical, numerical, synthetic, measured and reference-property results remain
 
 ## Test status
 
-15 passed, 0 failed, 0 skipped. Ruff lint and formatting pass. Optical checks cover
+Optical milestone: 15 passed, 0 failed, 0 skipped. New material/import/inference milestone:
+14 passed, 0 failed, 0 skipped (27 September 2026). Ruff lint and formatting pass.
+The unchanged optical tests have not yet been repeated in this milestone. Optical checks cover
 Fresnel/zero-thickness/quarter-wave limits, energy balance, passive absorption,
 total internal reflection, Brewster incidence, opaque films and invalid inputs.
 Thirty random stacks agree with tmm 0.2.0 for complex r/t and power R/T at
@@ -84,7 +86,8 @@ Thirty random stacks agree with tmm 0.2.0 for complex r/t and power R/T at
 
 - Experimental data lack an independent certified thickness in the recovered example.
 - Measurement noise/calibration and material-parameter uncertainty must not be invented.
-- pyElli repository has a GPL-3.0 licence; verify applicable dataset terms before redistribution.
+- pyElli raw data retain the source repository GPL-3.0 licence and attribution separately
+  from original MIT-licensed implementation; see data/PROVENANCE.md.
 - Published optical constants are reference model inputs, not validation measurements
   on this particular sample.
 - AI-assisted implementation; personal competence requires reviewing and reproducing it.
@@ -93,10 +96,12 @@ Thirty random stacks agree with tmm 0.2.0 for complex r/t and power R/T at
 
 Browser publication is explicitly authorized. Do not retry the connector write route, which
 returned HTTP 403 Resource not accessible by integration. Finish publishing the verified
-optical core/tests/model documentation, then complete dataset provenance and thickness
-inference. Do not change Projects 1–4.
+dispersion/import/inference milestone, then implement measured/synthetic cases and tolerancing.
+A falsification test exposed misleading covariance for identical-index layers; central
+differences and conservative rank detection now correctly suppress it. Do not change Projects 1–4.
 
 ## Latest verified GitHub checkpoint
 
-`9a2d97a` — complete initial scaffold, verified by fetching and comparing staged files
-against origin/main. The optical milestone supersedes it once publication is verified.
+`f8f0e75c235acd909271117eb3acca3192f0bb2b` — optical modules, independent tests and model
+documentation, verified against local files. The next checkpoint is the commit containing
+this updated recovery record; its parent milestones are verified before publication.

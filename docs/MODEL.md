@@ -55,4 +55,4 @@ Synthetic observations and measured spectra are labelled separately throughout.
   https://arxiv.org/abs/1603.02720. Equations and polarization/flux conventions.
 - https://github.com/sbyrnes321/tmm — independent development-only comparator.
 - https://pyelli.readthedocs.io/en/latest/auto_examples/plot_02_TiO2_multilayer.html
-  — source of the planned measured reanalysis; not certified thickness truth.
+  — source of the measured reanalysis; not certified thickness truth.

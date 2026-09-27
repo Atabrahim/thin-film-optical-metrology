@@ -57,8 +57,8 @@ be development-only comparisons, with their own licences retained.
 | Verify experimental data and reference inputs | VERIFIED, PUBLISHED | Pinned source files, licence, hashes and conditions in data/PROVENANCE.md; strict import and bounded interpolation tested; aea9d40. |
 | Optical core and independent validation | VERIFIED, PUBLISHED | 15 tests pass, including 30 randomized stack comparisons with independent tmm 0.2.0; remote f8f0e75 verified. |
 | Thickness inference and uncertainty | VERIFIED, PUBLISHED | Analytical Airy and independent tmm recovery, Fisher covariance, ambiguity and rank/bound checks pass; aea9d40. |
-| Measured case, synthetic ambiguity and tolerance study | NOT STARTED | |
-| CLI, figures, interactive demo and documentation | NOT STARTED | |
+| Measured case, synthetic ambiguity and tolerance study | VERIFIED | Workflow reproduces cases, diagnostics and convergence. 5 tolerance + 4 integration tests pass. Publication in progress. |
+| CLI, figures, interactive demo and documentation | VERIFIED | CLI runs end-to-end; four figures visually inspected; Streamlit AppTest passes. Scientific docs and reports being published. |
 | Full QA, clean wheel installation and CI | NOT STARTED | |
 | Final release and portfolio review | NOT STARTED | |
 
@@ -102,8 +102,8 @@ differences and conservative rank detection now correctly suppress it. Do not ch
 
 ## Latest verified GitHub checkpoint
 
-`aea9d40` — optical + dispersion/import/inference modules, independent tests and data
-provenance, verified by exact full-tree comparison to origin/main.
+`449d9fe` — optical + inference + coating design/tolerance milestones, verified by
+exact full-tree comparison to origin/main. Case workflow publication is in progress.
 
 ### Next-milestone working record
 
@@ -114,4 +114,9 @@ provenance, verified by exact full-tree comparison to origin/main.
   [pyElli defines rho = tan(Psi) exp(-i Delta)](https://pyelli.readthedocs.io/en/latest/_modules/elli/result.html),
   whereas this package reports +arg(rp/rs). Convert measured Delta explicitly in the workflow,
   preserve raw values, and show fit curves in the source convention. Do not change the core.
-- Next: publish the verified tolerance functions, then complete reproducible cases and CLI.
+- Five tolerance/design tests passed; four workflow/demo tests passed. CLI generates all
+  reports and four inspected figures. Measured result 24.978/276.052 nm, correlation -0.951;
+  structured residuals prevent calibrated-uncertainty claims. Synthetic narrow window
+  has multiple minima; broad window rejects alternatives found by multistart.
+- Case reports, functions and figures are being published. Next: full-suite QA, clean
+  installation, CI, remaining documentation consistency checks and release. No more features.

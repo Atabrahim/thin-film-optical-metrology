@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "config": {
+    "schema_version": 1,
+    "seed": 2026,
+    "measurement_file": "../data/raw/TiO2_400cycles.txt",
+    "silicon_file": "../data/reference/Si_Aspnes.yml",
+    "output_dir": "../outputs/case-study",
+    "monte_carlo_samples": 2000
+  },
+  "software": {
+    "thin-film-optical-metrology": "0.1.0",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1"
+  },
+  "input_sha256": {
+    "measurement": "fd0ef2b7ad72c77a5ad87ead9e697897f54b3d3a1154b0b12e0de21e668ce702",
+    "silicon": "766489862d0d4dc6011e9f078e556a4a24fe79622bec0b1f1a80b297c84ce00d"
+  },
+  "measured": {
+    "category": "measured data; fitted quantities conditional on fixed dispersion",
+    "original_rows": 1227,
+    "used_rows": 926,
+    "excluded_rows": 301,
+    "angle_deg": 70.06,
+    "delta_conversion": "delta_api_deg = -delta_raw_deg; modulo 360 equivalence",
+    "noise_assumption": "equal degree weights; residual-scaled iid covariance",
+    "one_thickness": {
+      "thickness_nm": [
+        24.8059671465532,
+        276.36
+      ],
+      "variable_layers": [
+        0
+      ],
+      "objective": 413.9278067481844,
+      "degrees_of_freedom": 1851,
+      "covariance_nm2": [
+        [
+          2.3460690430633434e-05
+        ]
+      ],
+      "correlation": [
+        [
+          1.0000000000000002
+        ]
+      ],
+      "flags": [
+        "correlated_residuals"
+      ],
+      "candidates": [
+        [
+          [
+            24.8059671465532
+          ],
+          413.9278067481844
+        ]
+      ],
+      "absolute_sigma": false,
+      "jacobian_condition": 1.0,
+      "local_standard_errors_nm": [
+        0.004843623687966834
+      ],
+      "rmse": [
+        0.20899641889636641,
+        0.6350801269720783
+      ]
+    },
+    "two_thickness": {
+      "thickness_nm": [
+        24.977933927008532,
+        276.0524783408862
+      ],
+      "variable_layers": [
+        0,
+        1
+      ],
+      "objective": 383.54220934247405,
+      "degrees_of_freedom": 1850,
+      "covariance_nm2": [
+        [
+          0.0002306013795058762,
+          -0.00037209559474417385
+        ],
+        [
+          -0.0003720955947441739,
+          0.0006635612224968848
+        ]
+      ],
+      "correlation": [
+        [
+          1.0000000000000002,
+          -0.9512246118356661
+        ],
+        [
+          -0.9512246118356662,
+          1.0
+        ]
+      ],
+      "flags": [
+        "correlated_residuals"
+      ],
+      "candidates": [
+        [
+          [
+            24.977933927008532,
+            276.0524783408862
+          ],
+          383.54220934247405
+        ]
+      ],
+      "absolute_sigma": false,
+      "jacobian_condition": 7.2720233673816566,
+      "local_standard_errors_nm": [
+        0.015185564839869348,
+        0.025759682111720337
+      ],
+      "rmse": [
+        0.2610136911860548,
+        0.5882723040457088
+      ]
+    },
+    "sensitivity": [
+      {
+        "scenario": "baseline",
+        "angle_deg": 70.06,
+        "TiO2_n0_offset": 0,
+        "oxide_nm": 276.36,
+        "TiO2_nm": 24.8059671465532,
+        "objective_deg2": 413.9278067481844
+      },
+      {
+        "scenario": "source_example_angle",
+        "angle_deg": 70,
+        "TiO2_n0_offset": 0,
+        "oxide_nm": 276.36,
+        "TiO2_nm": 24.76602870938997,
+        "objective_deg2": 433.1747875427306
+      },
+      {
+        "scenario": "angle_minus_0.1deg",
+        "angle_deg": 69.96,
+        "TiO2_n0_offset": 0,
+        "oxide_nm": 276.36,
+        "TiO2_nm": 24.73946173107181,
+        "objective_deg2": 504.52002874848756
+      },
+      {
+        "scenario": "angle_plus_0.1deg",
+        "angle_deg": 70.16,
+        "TiO2_n0_offset": 0,
+        "oxide_nm": 276.36,
+        "TiO2_nm": 24.872770082176224,
+        "objective_deg2": 619.8755358793038
+      },
+      {
+        "scenario": "TiO2_n0_minus_0.01",
+        "angle_deg": 70.06,
+        "TiO2_n0_offset": -0.01,
+        "oxide_nm": 276.36,
+        "TiO2_nm": 24.952788299839195,
+        "objective_deg2": 811.9455049629277
+      },
+      {
+        "scenario": "TiO2_n0_plus_0.01",
+        "angle_deg": 70.06,
+        "TiO2_n0_offset": 0.01,
+        "oxide_nm": 276.36,
+        "TiO2_nm": 24.660661000419836,
+        "objective_deg2": 216.57561504454392
+      },
+      {
+        "scenario": "oxide_minus_1nm",
+        "angle_deg": 70.06,
+        "TiO2_n0_offset": 0,
+        "oxide_nm": 275.36,
+        "TiO2_nm": 25.36741687411376,
+        "objective_deg2": 535.8196586231317
+      },
+      {
+        "scenario": "oxide_plus_1nm",
+        "angle_deg": 70.06,
+        "TiO2_n0_offset": 0,
+        "oxide_nm": 277.36,
+        "TiO2_nm": 24.25117698506857,
+        "objective_deg2": 939.5436276489181
+      }
+    ],
+    "warning": "Residual correlation invalidates a literal iid precision claim. TiO2 dispersion was fitted to the same data by the source. No independent truth."
+  },
+  "synthetic": {
+    "narrow": {
+      "thickness_nm": [
+        136.88026574761025
+      ],
+      "variable_layers": [
+        0
+      ],
+      "objective": 87.36452182766915,
+      "degrees_of_freedom": 89,
+      "covariance_nm2": [
+        [
+          0.01574249055302479
+        ]
+      ],
+      "correlation": [
+        [
+          1.0
+        ]
+      ],
+      "flags": [
+        "competing_minima"
+      ],
+      "candidates": [
+        [
+          [
+            136.88026574761025
+          ],
+          87.36452182766915
+        ],
+        [
+          [
+            29.786179791389397
+          ],
+          88.65714871464105
+        ],
+        [
+          [
+            303.5478482966308
+          ],
+          89.42124128376678
+        ],
+        [
+          [
+            196.45148832769078
+          ],
+          93.299223880239
+        ],
+        [
+          [
+            470.21656881952265
+          ],
+          94.82580149921353
+        ],
+        [
+          [
+            363.11565914679886
+          ],
+          101.28944552376282
+        ],
+        [
+          [
+            636.8864291294428
+          ],
+          103.57529318856233
+        ],
+        [
+          [
+            529.7786905450737
+          ],
+          112.62510787846298
+        ]
+      ],
+      "absolute_sigma": true,
+      "jacobian_condition": 1.0,
+      "local_standard_errors_nm": [
+        0.12546908206018242
+      ],
+      "rmse": 0.0019704993369157207
+    },
+    "broad": {
+      "thickness_nm": [
+        136.78463747003588
+      ],
+      "variable_layers": [
+        0
+      ],
+      "objective": 86.30705950824404,
+      "degrees_of_freedom": 89,
+      "covariance_nm2": [
+        [
+          0.02348632209042892
+        ]
+      ],
+      "correlation": [
+        [
+          0.9999999999999999
+        ]
+      ],
+      "flags": [],
+      "candidates": [
+        [
+          [
+            136.78463747003588
+          ],
+          86.30705950824404
+        ],
+        [
+          [
+            280.2465116726461
+          ],
+          21134.588472547235
+        ],
+        [
+          [
+            26.99406898282676
+          ],
+          28275.338453327786
+        ],
+        [
+          [
+            499.10153000326255
+          ],
+          34473.564379422234
+        ],
+        [
+          [
+            699.9999999999999
+          ],
+          39421.56086978984
+        ]
+      ],
+      "absolute_sigma": true,
+      "jacobian_condition": 1.0,
+      "local_standard_errors_nm": [
+        0.15325247825216048
+      ],
+      "rmse": 0.0019585375440561545
+    },
+    "category": "synthetic observations, no experimental measurements",
+    "seed": 2026,
+    "truth_nm": 137.0,
+    "sigma_R": 0.002,
+    "two_layer_truth_nm": [
+      27,
+      276
+    ],
+    "two_layer_sigma_deg": 0.05,
+    "two_layer": {
+      "thickness_nm": [
+        26.983107292978396,
+        276.02436386085037
+      ],
+      "variable_layers": [
+        0,
+        1
+      ],
+      "objective": 144.3077641003203,
+      "degrees_of_freedom": 128,
+      "covariance_nm2": [
+        [
+          6.118247785364244e-05,
+          -9.301683449329627e-05
+        ],
+        [
+          -9.301683449329627e-05,
+          0.00015209332798009372
+        ]
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9642573178211898
+        ],
+        [
+          -0.9642573178211898,
+          0.9999999999999998
+        ]
+      ],
+      "flags": [],
+      "candidates": [
+        [
+          [
+            26.983107292978396,
+            276.02436386085037
+          ],
+          144.3077641003203
+        ]
+      ],
+      "absolute_sigma": true,
+      "jacobian_condition": 8.222496253874436,
+      "local_standard_errors_nm": [
+        0.007821922900006266,
+        0.012332612374517158
+      ],
+      "rmse": [
+        0.05701887809597459,
+        0.04794941250859576
+      ]
+    }
+  },
+  "tolerance": {
+    "category": "numerical design and assumed process variation; not measured yield",
+    "band_nm": [
+      450,
+      750
+    ],
+    "weighting": "uniform per nm",
+    "angle_deg": 0,
+    "bounds_nm": [
+      20,
+      180
+    ],
+    "optimum_nm": 58.351995339381524,
+    "mean_R": 0.06287684016108686,
+    "bare_mean_R": 0.3614576509217814,
+    "fine_grid_optimum_nm": 58.35210224197739,
+    "refinement_difference_mean_R": 1.3419601592873365e-06,
+    "assumed_parent_sigma_nm": 2,
+    "samples": 2000,
+    "seed": 2028,
+    "rejected_negative_draws": 0,
+    "R_percentiles_2p5_50_97p5": [
+      0.06287789475225294,
+      0.06330344127563964,
+      0.06789363209001946
+    ],
+    "percentile_meaning": "assumed performance distribution, not measurement CI"
+  }
+}

@@ -54,9 +54,9 @@ be development-only comparisons, with their own licences retained.
 | Recover original roadmap and inspect Projects 1–4 | VERIFIED | Saved plan read; published repository documentation inspected. |
 | Create repository and freeze scope | VERIFIED | Repository created under Atabrahim; initial README commit 1a273834fedb8c7afee0e2a215b99bd72211e30f. |
 | Publish scaffold and progress record | VERIFIED, PUBLISHED | Remote scaffold files match local files at 9a2d97a; package import, sdist/wheel build and Ruff pass. |
-| Verify experimental data and reference inputs | VERIFIED | Pinned source files, licence, hashes and conditions in data/PROVENANCE.md; strict import and bounded interpolation tested. Publication in progress. |
+| Verify experimental data and reference inputs | VERIFIED, PUBLISHED | Pinned source files, licence, hashes and conditions in data/PROVENANCE.md; strict import and bounded interpolation tested; aea9d40. |
 | Optical core and independent validation | VERIFIED, PUBLISHED | 15 tests pass, including 30 randomized stack comparisons with independent tmm 0.2.0; remote f8f0e75 verified. |
-| Thickness inference and uncertainty | VERIFIED | Analytical Airy and independent tmm recovery, Fisher covariance, ambiguity and rank/bound checks pass. Publication in progress. |
+| Thickness inference and uncertainty | VERIFIED, PUBLISHED | Analytical Airy and independent tmm recovery, Fisher covariance, ambiguity and rank/bound checks pass; aea9d40. |
 | Measured case, synthetic ambiguity and tolerance study | NOT STARTED | |
 | CLI, figures, interactive demo and documentation | NOT STARTED | |
 | Full QA, clean wheel installation and CI | NOT STARTED | |
@@ -102,6 +102,16 @@ differences and conservative rank detection now correctly suppress it. Do not ch
 
 ## Latest verified GitHub checkpoint
 
-`f8f0e75c235acd909271117eb3acca3192f0bb2b` — optical modules, independent tests and model
-documentation, verified against local files. The next checkpoint is the commit containing
-this updated recovery record; its parent milestones are verified before publication.
+`aea9d40` — optical + dispersion/import/inference modules, independent tests and data
+provenance, verified by exact full-tree comparison to origin/main.
+
+### Next-milestone working record
+
+- Single-layer band-average design and seeded truncated-normal tolerance propagation implemented.
+- Initial 101-point spectral quadrature missed the 2e-6 reflectance convergence target;
+  201-point baseline versus 801-point refinement is used instead. No physical parameters tuned.
+- Measured-case integration uncovered a phase-sign mismatch, not a forward-solver error:
+  [pyElli defines rho = tan(Psi) exp(-i Delta)](https://pyelli.readthedocs.io/en/latest/_modules/elli/result.html),
+  whereas this package reports +arg(rp/rs). Convert measured Delta explicitly in the workflow,
+  preserve raw values, and show fit curves in the source convention. Do not change the core.
+- Next: publish the verified tolerance functions, then complete reproducible cases and CLI.

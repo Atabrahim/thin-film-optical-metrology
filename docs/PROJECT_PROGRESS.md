@@ -60,7 +60,7 @@ be development-only comparisons, with their own licences retained.
 | Measured case, synthetic ambiguity and tolerance study | VERIFIED, PUBLISHED | Complete reproducible reports and sensitivity results in results/; scientific gates pass. |
 | CLI, figures, interactive demo and documentation | VERIFIED, PUBLISHED | CLI reproduces all outputs; four figures inspected; Streamlit AppTest and loopback server pass. |
 | Full QA, clean wheel installation and CI | VERIFIED, PUBLISHED | 38/38 tests; Ruff; wheel/sdist; clean API/CLI; fresh-clone README workflow; CI 3.11/3.12/3.13 succeeds at 8e84e40. |
-| Final release content and portfolio review | COMPLETE, VERIFIED | V1 scope complete; learning/portfolio review in LEARNING.md. Publish v0.1.0 only after this final documentation commit passes CI. |
+| Final release content and portfolio review | COMPLETE, VERIFIED, PUBLISHED | v0.1.0 published at d542c5c; release assets downloaded and hash-verified; learning/portfolio review in LEARNING.md. |
 
 ## Scientific validation plan
 
@@ -98,19 +98,25 @@ No further feature development is required. Final documentation and release meta
 the only publication steps associated with this record. No unresolved implementation bug
 is known. Packaging, independent validation, reproducibility and full testing are verified.
 
-Before declaring external publication complete, check GitHub for tag/release `v0.1.0`,
-confirm its target is the final approved commit, and confirm that commit's CI is green.
-If the release already exists, do not recreate it. If absent, publish only after final CI.
-Browser publication remains explicitly authorized; do not retry the connector's known
-403 write route. Do not modify Projects 1–4 or start another project.
+Release publication is complete. Tag `v0.1.0` resolves to
+`d542c5ca4a40bf635de4ff7c2c32f52b8335ffc3`. The public release and both attached
+package assets were verified on 28 September 2026 (Europe/Berlin).
+No remaining V1 task or known release-blocking defect remains.
 
 ## Latest verified GitHub checkpoint
 
-`8e84e405af3ed8435b528c209d90babe19c148ab` — complete implementation, results, figures,
-README, CI and learning notes. Exact local/remote tree match verified. Actual CI run
-36317654740 succeeded across Python 3.11–3.13. The commit containing this final QA record
-supersedes that checkpoint after publication. The release tag is the authoritative final
-commit identifier (a commit cannot contain its own hash).
+Release: https://github.com/Atabrahim/thin-film-optical-metrology/releases/tag/v0.1.0
+
+Release commit: `d542c5ca4a40bf635de4ff7c2c32f52b8335ffc3`.
+Actual CI run https://github.com/Atabrahim/thin-film-optical-metrology/actions/runs/36318005630
+succeeded on Python 3.11, 3.12 and 3.13. Local release source matches the tagged tree.
+Both public asset downloads match the previously tested local builds byte-for-byte:
+
+- Wheel (24,418 bytes): SHA256 `d874609bf8ad4949fae0bed9a6d394a7f11590202157e5a99e651804eef3aaf1`.
+- Source distribution (885,236 bytes): SHA256 `4bfb3d16328d7e454e9e07d0120d11b0fb89824cf7182151195eea0cbd837c68`.
+
+This post-release documentation receipt records publication; it does not change the
+release tag, implementation, data, results or package assets. Do not restart development.
 
 ### Resolved findings and final QA record
 

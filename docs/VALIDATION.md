@@ -28,16 +28,31 @@ Important defects found and resolved during development:
 3. An initial spectral grid missed the desired integration tolerance. Refinement
    resolved it; physical parameters and acceptance tolerance were not adjusted.
 
-## Current execution evidence
+## Final execution evidence — 27 September 2026
 
-- Optical milestone: 15 passed in the earlier published checkpoint.
-- New material/import/inference: 14 passed.
-- Tolerance/design: 5 passed.
-- Workflow/demo integration: 4 passed.
-- End-to-end numeric and figure workflows executed successfully.
-- Four scientific figures visually inspected for labels, units, wraps, residuals,
-  numerical trends and data/model distinction.
-- Final combined tests, clean wheel/sdist installation and GitHub CI are still pending.
+- Complete automated suite: **38 passed, 0 failed, 0 skipped** in development and
+  from a clean wheel installation (Python 3.12). This includes all scientific gates above.
+- Ruff lint and formatting checks pass for source, tests and examples.
+- Source distribution and wheel built successfully; the wheel was built from the sdist.
+  A fresh environment installed the wheel and its declared extras; `pip check` reports
+  no broken requirements. Imports resolve to that environment's site-packages.
+- The exact README Python example, installed CLI, module CLI and representative full
+  workflow pass. A fresh public clone followed the README's noneditable source install
+  and both documented analysis commands successfully.
+- Clean-wheel reproduction matches all seven CSV tables, the JSON report and all four
+  PNG figures byte-for-byte in the tested environment. No scientific outputs changed
+  in the final CI/documentation patch. Cross-platform equality is assessed numerically.
+- Streamlit AppTest exercises both measurement windows and oblique incidence. A headless
+  server bound explicitly to loopback returns HTTP 200 `ok`; the README uses that binding.
+- All four scientific figures visually inspected: correct units, labels, phase-wrap
+  handling, refined-minimum markers, residual signs, captions and physical interpretation.
+- Local documentation links verified. Scientific source/provenance links were inspected.
+- Actual GitHub Actions run [36317654740](https://github.com/Atabrahim/thin-film-optical-metrology/actions/runs/36317654740)
+  succeeded for Python 3.11, 3.12 and 3.13 at `8e84e40`. It builds/installs the wheel,
+  runs the full suite, checks Ruff and executes the complete plotting CLI. Deprecated
+  Node actions were updated to v7 and the runner pinned to Ubuntu 24.04; updated CI passed.
+  Final release publication additionally requires success on the release commit.
 
-The progress record records the latest verified checkpoint; release status must not be
-inferred solely from this validation design table.
+No unresolved implementation defect was found in the final audit. Remaining limitations
+are scientific scope boundaries, including fixed optical constants, correlated measured
+residuals and assumed process distributions. These are not hidden by the passing tests.

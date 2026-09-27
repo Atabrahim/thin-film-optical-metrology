@@ -51,16 +51,16 @@ be development-only comparisons, with their own licences retained.
 
 | Milestone | Status | Evidence |
 | --- | --- | --- |
-| Recover original roadmap and inspect Projects 1–4 | VERIFIED | Saved plan read; published repository documentation inspected. |
+| Recover original roadmap and inspect Projects 1–4 | VERIFIED, PUBLISHED | Saved plan read; published repository documentation inspected. |
 | Create repository and freeze scope | VERIFIED | Repository created under Atabrahim; initial README commit 1a273834fedb8c7afee0e2a215b99bd72211e30f. |
 | Publish scaffold and progress record | VERIFIED, PUBLISHED | Remote scaffold files match local files at 9a2d97a; package import, sdist/wheel build and Ruff pass. |
 | Verify experimental data and reference inputs | VERIFIED, PUBLISHED | Pinned source files, licence, hashes and conditions in data/PROVENANCE.md; strict import and bounded interpolation tested; aea9d40. |
 | Optical core and independent validation | VERIFIED, PUBLISHED | 15 tests pass, including 30 randomized stack comparisons with independent tmm 0.2.0; remote f8f0e75 verified. |
 | Thickness inference and uncertainty | VERIFIED, PUBLISHED | Analytical Airy and independent tmm recovery, Fisher covariance, ambiguity and rank/bound checks pass; aea9d40. |
-| Measured case, synthetic ambiguity and tolerance study | VERIFIED | Workflow reproduces cases, diagnostics and convergence. 5 tolerance + 4 integration tests pass. Publication in progress. |
-| CLI, figures, interactive demo and documentation | VERIFIED | CLI runs end-to-end; four figures visually inspected; Streamlit AppTest passes. Scientific docs and reports being published. |
-| Full QA, clean wheel installation and CI | NOT STARTED | |
-| Final release and portfolio review | NOT STARTED | |
+| Measured case, synthetic ambiguity and tolerance study | VERIFIED, PUBLISHED | Complete reproducible reports and sensitivity results in results/; scientific gates pass. |
+| CLI, figures, interactive demo and documentation | VERIFIED, PUBLISHED | CLI reproduces all outputs; four figures inspected; Streamlit AppTest and loopback server pass. |
+| Full QA, clean wheel installation and CI | VERIFIED, PUBLISHED | 38/38 tests; Ruff; wheel/sdist; clean API/CLI; fresh-clone README workflow; CI 3.11/3.12/3.13 succeeds at 8e84e40. |
+| Final release content and portfolio review | COMPLETE, VERIFIED | V1 scope complete; learning/portfolio review in LEARNING.md. Publish v0.1.0 only after this final documentation commit passes CI. |
 
 ## Scientific validation plan
 
@@ -74,15 +74,14 @@ Analytical, numerical, synthetic, measured and reference-property results remain
 
 ## Test status
 
-Optical milestone: 15 passed, 0 failed, 0 skipped. New material/import/inference milestone:
-14 passed, 0 failed, 0 skipped (27 September 2026). Ruff lint and formatting pass.
-The unchanged optical tests have not yet been repeated in this milestone. Optical checks cover
+Final full suite: **38 passed, 0 failed, 0 skipped**, repeated successfully from a clean
+wheel installation on 27 September 2026. Ruff lint and formatting pass. Optical checks cover
 Fresnel/zero-thickness/quarter-wave limits, energy balance, passive absorption,
 total internal reflection, Brewster incidence, opaque films and invalid inputs.
 Thirty random stacks agree with tmm 0.2.0 for complex r/t and power R/T at
 2e-12 absolute/relative tolerances. These verify calculations, not measured accuracy.
 
-## Known limitations / open checks
+## Known scientific limitations
 
 - Experimental data lack an independent certified thickness in the recovered example.
 - Measurement noise/calibration and material-parameter uncertainty must not be invented.
@@ -92,31 +91,47 @@ Thirty random stacks agree with tmm 0.2.0 for complex r/t and power R/T at
   on this particular sample.
 - AI-assisted implementation; personal competence requires reviewing and reproducing it.
 
-## Remaining work / next action
+## Completion status / recovery action
 
-Browser publication is explicitly authorized. Do not retry the connector write route, which
-returned HTTP 403 Resource not accessible by integration. Finish publishing the verified
-dispersion/import/inference milestone, then implement measured/synthetic cases and tolerancing.
-A falsification test exposed misleading covariance for identical-index layers; central
-differences and conservative rank detection now correctly suppress it. Do not change Projects 1–4.
+**Project 5 V1 is complete according to the frozen scientific/software scope.**
+No further feature development is required. Final documentation and release metadata are
+the only publication steps associated with this record. No unresolved implementation bug
+is known. Packaging, independent validation, reproducibility and full testing are verified.
+
+Before declaring external publication complete, check GitHub for tag/release `v0.1.0`,
+confirm its target is the final approved commit, and confirm that commit's CI is green.
+If the release already exists, do not recreate it. If absent, publish only after final CI.
+Browser publication remains explicitly authorized; do not retry the connector's known
+403 write route. Do not modify Projects 1–4 or start another project.
 
 ## Latest verified GitHub checkpoint
 
-`449d9fe` — optical + inference + coating design/tolerance milestones, verified by
-exact full-tree comparison to origin/main. Case workflow publication is in progress.
+`8e84e405af3ed8435b528c209d90babe19c148ab` — complete implementation, results, figures,
+README, CI and learning notes. Exact local/remote tree match verified. Actual CI run
+36317654740 succeeded across Python 3.11–3.13. The commit containing this final QA record
+supersedes that checkpoint after publication. The release tag is the authoritative final
+commit identifier (a commit cannot contain its own hash).
 
-### Next-milestone working record
+### Resolved findings and final QA record
 
 - Single-layer band-average design and seeded truncated-normal tolerance propagation implemented.
 - Initial 101-point spectral quadrature missed the 2e-6 reflectance convergence target;
   201-point baseline versus 801-point refinement is used instead. No physical parameters tuned.
 - Measured-case integration uncovered a phase-sign mismatch, not a forward-solver error:
   [pyElli defines rho = tan(Psi) exp(-i Delta)](https://pyelli.readthedocs.io/en/latest/_modules/elli/result.html),
-  whereas this package reports +arg(rp/rs). Convert measured Delta explicitly in the workflow,
-  preserve raw values, and show fit curves in the source convention. Do not change the core.
+  whereas this package reports +arg(rp/rs). The workflow now converts measured Delta explicitly,
+  preserves raw values and plots predictions in the source convention. The core was unchanged.
 - Five tolerance/design tests passed; four workflow/demo tests passed. CLI generates all
   reports and four inspected figures. Measured result 24.978/276.052 nm, correlation -0.951;
   structured residuals prevent calibrated-uncertainty claims. Synthetic narrow window
   has multiple minima; broad window rejects alternatives found by multistart.
-- Case reports, functions and figures are being published. Next: full-suite QA, clean
-  installation, CI, remaining documentation consistency checks and release. No more features.
+- All seven CSV tables, JSON report and four figures reproduce byte-identically from the
+  clean wheel. A separate fresh-clone source installation verifies README CLI commands.
+- The interrupted session removed disposable environment executables, but source code,
+  input data, reports and figures survived intact. A new clean environment reproduced
+  results and passed all 38 tests; no scientific implementation was rebuilt.
+- Final CI maintenance updated Node-based actions to v7 and fixed the Ubuntu 24.04 runner.
+  Updated CI passes; there are no science/output changes in that patch.
+- Package builds, public API example, installed CLI, module CLI, optional demo, dependency
+  consistency and local documentation links verified. Scientific audit covered sign,
+  polarization, flux normalization, phase conversion, bounds, degeneracy and uncertainty.

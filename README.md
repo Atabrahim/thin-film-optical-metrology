@@ -149,6 +149,9 @@ See [validation and release checks](docs/VALIDATION.md). Tables are deterministi
 the declared seed/environment. Cross-platform floating-point/raster differences can occur;
 compare numerical tolerances rather than requiring identical PNG bytes.
 
+For equations to explain in an interview, design decisions and honest portfolio language,
+see [learning notes](docs/LEARNING.md).
+
 ## Project structure
 
 | Path | Role |

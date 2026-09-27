@@ -123,7 +123,7 @@ Interactive synthetic demonstration:
 
 ```bash
 python -m pip install ".[app]"
-streamlit run examples/app.py
+streamlit run examples/app.py --server.address 127.0.0.1
 ```
 
 Change thickness/angle and compare single-colour with broad-spectrum information.

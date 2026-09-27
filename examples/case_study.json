@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "seed": 2026,
+  "measurement_file": "../data/raw/TiO2_400cycles.txt",
+  "silicon_file": "../data/reference/Si_Aspnes.yml",
+  "output_dir": "../outputs/case-study",
+  "monte_carlo_samples": 2000
+}
